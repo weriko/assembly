@@ -4,7 +4,7 @@ section .text
 
 	
 	global data
-;%include "linetest.asm"	
+	
 
 org 100h
 _start:
@@ -176,10 +176,7 @@ _start:
 		
 		
 	jmp .wloop
-	; mov eax, [x1]
-	; cmp eax, [x2]
-	; jl x1_less_x2 ; if(x1<x2)
-	; jmp x1_less_x2
+	
 	
 
 
@@ -379,7 +376,7 @@ DRAW_LINE:
 		
 		.w_loop:
 			MOV AH, 0Ch
-			MOV AL, [color] ;empieza video
+			MOV AL, [color] 
 			MOV BH, 00h
 			mov ecx, [x] 
 			mov edx, [y] ; x,y para int 10
@@ -602,7 +599,7 @@ DRAW_POINTS:
 		inc si
 		inc si
 		inc si
-		inc si ; dos veces porque x_cords es dword
+		inc si ; add si, 4....?no
 		int 10h
 		cmp si, 239
 		jle loop4
@@ -648,7 +645,6 @@ section .data
 	 y : dd 0
 	 xi : dd 0
 	 yi : dd 0
-	 ahprro : dd 100
 	 d_x : dd 0
 	 d_y : dd 0
 	 p: dd 0
